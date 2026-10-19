@@ -1,6 +1,6 @@
 # Playwright TypeScript Test Framework
 
-A small framework template using Playwright Test and TypeScript.
+A small framework template using Playwright and TypeScript.
 
 ## Folder structure
 
