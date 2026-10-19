@@ -1,14 +1,26 @@
 # Playwright TypeScript Test Framework
 
-A small end-to-end test starter using Playwright Test and TypeScript.
+A small framework template using Playwright Test and TypeScript.
 
 ## Folder structure
 
 ```text
 .
-├── pages/                 # Page objects (add as the suite grows)
+├── pages/                 # Page objects
+|   └── basePage.ts        # Project common functions
+|   └── dialogsPage.ts     # Dialogs example page
+|   └── googleAccPage.ts   # Session handeling example page
+|   └── loginPage.ts       # Login example page
+|   └── newWindowPage.ts   # Window/tab example page
 ├── tests/                 # Playwright test specifications
-│   └── example.spec.ts
+│   └── api.spec.ts        # API test
+|   └── dialogs.spec.ts    # Dialog handle tests
+|   └── googleAcc.spec.ts  # Session handeling tests
+|   └── login.spec.ts       # Login site test
+|   └── newWindow.spec.ts   # Window/tab handle tes
+├── utils/                  # Util libraries
+│   └── baseUrl.ts          # Base URLs for projects
+│   └── rest.ts             # API library
 ├── playwright.config.ts   # Test runner and browser configuration
 ├── package.json
 └── tsconfig.json
@@ -21,7 +33,3 @@ npm install
 npx playwright install chromium
 npm test
 ```
-
-The sample test opens the Playwright documentation site. Use `npm run test:headed`
-to see the browser, `npm run test:ui` for Playwright's UI mode, and
-`npm run report` to open the most recent HTML report.
