@@ -38,7 +38,7 @@ test.beforeAll('Authenticates and stores authentication state', async () => {
     } else {
         state = await page.context().storageState();
     }
-    page.close();
+    await page.close();
 });
 
 test('Login with authentication credentials', async({ browser }) => {
@@ -47,5 +47,5 @@ test('Login with authentication credentials', async({ browser }) => {
     await page.goto(BASEURL);
     await expect(page).toHaveTitle('Cuenta de Google');
     console.log('Page |' + await page.title() + '| opened')
-    expect
+    await page.close();
 });
