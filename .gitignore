@@ -8,4 +8,4 @@ blob-report/
 
 #Authorization cookies/credentials
 auth/*.json
-auth/*.ts
+auth/googleCredentials.ts

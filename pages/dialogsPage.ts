@@ -1,6 +1,5 @@
 import {type Locator, type Page, type Dialog, expect} from "@playwright/test";
 import { BasePage } from "./basePage";
-import creds from "../utils/credentials";
 
 
 export class DialogPage extends BasePage {

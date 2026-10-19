@@ -1,6 +1,6 @@
 import {type Locator, type Page, expect} from "@playwright/test";
 import { BasePage } from "./basePage";
-import creds from "../utils/credentials"; //Imports page credentials
+import creds from "../auth/credentials"; //Imports page credentials
 
 
 export class LoginPage extends BasePage{ //Class inherits from BasePage

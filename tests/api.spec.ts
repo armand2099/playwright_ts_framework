@@ -1,6 +1,6 @@
 import {test, expect, type Page} from '@playwright/test'
 import { Rest } from '../utils/rest';
-import baseEnvironmentUrl from '../utils/environmentBaseUrl'
+import baseEnvironmentUrl from '../utils/baseUrl'
 
 let rest: Rest;
 

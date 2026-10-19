@@ -1,6 +1,6 @@
 import {type Locator, type Page, type Dialog, expect} from "@playwright/test";
 import { BasePage } from "./basePage";
-import creds from "../auth/credentials"; //Imports page credentials
+import creds from "../auth/googleCredentials"; //Imports page credentials
 
 
 export class GoogleAccPage extends BasePage{

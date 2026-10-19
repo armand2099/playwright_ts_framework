@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import baseEnvironmentUrl from './utils/environmentBaseUrl'
+import baseEnvironmentUrl from './utils/baseUrl'
 
 export default defineConfig({
   testDir: './tests',
