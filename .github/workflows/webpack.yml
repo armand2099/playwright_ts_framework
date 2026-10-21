@@ -33,4 +33,4 @@ jobs:
 
     - name: Run tests
       run: 
-        npx playwright test --test-ignore="**/loginAuth.spec.ts"
+        npx playwright test
