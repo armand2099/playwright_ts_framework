@@ -1,6 +1,9 @@
 {
-  "name": "playwright-typescript-framework",
+  "name": "@armand2099/playwright-typescript-framework",
   "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
   "private": true,
   "scripts": {
     "test": "playwright test",
