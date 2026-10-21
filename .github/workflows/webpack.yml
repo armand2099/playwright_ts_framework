@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22.x, 24.x]
+        node-version: [24.x]
 
     steps:
     - uses: actions/checkout@v6
@@ -33,4 +33,4 @@ jobs:
 
     - name: Run tests
       run: 
-        npx playwright test --test-ignore="**/loginAuth.spec.ts"
+        npx playwright test
