@@ -29,11 +29,18 @@ export class NewWindowPage extends BasePage{
     async newPage(pageBtn: Locator):Promise<Page>{
         /*Clicks the required button, waits for the new page to load and returns the new tab page object*/
         const pagePromise = this.context.waitForEvent('page');
-        await pageBtn.click();
-        
-        const newTab = await pagePromise;
+        let newTab: Page;
+        let reTry = 0;
 
-        await newTab.waitForLoadState('domcontentloaded');
+        do {
+            await pageBtn.click();
+            reTry++;
+        
+            newTab = await pagePromise;
+
+            await newTab.waitForLoadState();
+            await newTab.waitForSelector('body');
+        } while (newTab.isClosed() && reTry < 5);
 
         return newTab;
 
