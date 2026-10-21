@@ -12,19 +12,19 @@ test.beforeEach(async ({page, context}) => {
 
 test.describe('Open and validate the 3 types od windows pages', () => {
     test('New Tab', async() => {
-        let newTab = newWindowPage.newPage(newWindowPage.newTabButton);
+        const newTab = newWindowPage.newPage(newWindowPage.newTabButton);
         expect((await newTab).locator('#sampleHeading')).toContainText('This is a sample page');
         (await newTab).close();
     });
 
     test('New Window', async() => {
-        let newWindow = newWindowPage.newPage(newWindowPage.newWindowButton);
+        const newWindow = newWindowPage.newPage(newWindowPage.newWindowButton);
         expect((await newWindow).locator('#sampleHeading')).toContainText('This is a sample page');
         (await newWindow).close();
     });    
 
     test('New Window Message', async() => {
-        let newWindowMsg = newWindowPage.newPage(newWindowPage.newWinMsgButton);
+        const newWindowMsg = newWindowPage.newPage(newWindowPage.newWinMsgButton);
         expect((await newWindowMsg).locator('body')).toContainText(windowText);
         (await newWindowMsg).close();
     });

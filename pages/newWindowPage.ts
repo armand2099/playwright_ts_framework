@@ -32,7 +32,8 @@ export class NewWindowPage extends BasePage{
         await pageBtn.click();
         
         const newTab = await pagePromise;
-        await newTab.waitForLoadState();
+        await newTab.waitForLoadState('networkidle');
+        await newTab.bringToFront();
 
         return newTab;
 
