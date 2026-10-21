@@ -25,12 +25,12 @@ jobs:
         npm init -y
         npm install -D @playwright/test
         npx playwright install
-
-    - name: Verify browsers
-      run: |
-        npx playwright install chromium --with-deps
-        npx playwright install firefox --with-deps
+    
+    #- name: Verify browsers
+    #  run: |
+    #    npx playwright install chromium --with-deps
+    #    npx playwright install firefox --with-deps
 
     - name: Run tests
       run: 
-        npx playwright test --grep-invert 'loginAuth.spec.ts'
+        npx playwright test --test-ignore="**/loginAuth.spec.ts"
