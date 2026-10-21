@@ -36,6 +36,7 @@ jobs:
           node-version: 24
           registry-url: https://npm.pkg.github.com
       - run: npm ci
+      - run: npm version 1.0.0-dev.${{ github.run_number }} --no-git-tag-version
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
