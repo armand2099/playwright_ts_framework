@@ -4,7 +4,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
