@@ -16,7 +16,7 @@ export default defineConfig({
   use: {
     trace: 'on-first-retry',
     screenshot: 'on',
-    headless: false,
+    headless: true,
     video: 'retain-on-first-failure',
     launchOptions: {
     slowMo: 500, // milliseconds between browser actions
@@ -29,11 +29,21 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'demo',
+      name: 'Chrome',
       use: { 
         baseURL: baseEnvironmentUrl.demo.home,
-        //...devices['Desktop Chrome'], 
-        channel: 'chrome',
+        ...devices['Desktop Chrome'], 
+        //channel: 'chrome',
+        //viewport: {width: 1920, height: 900},
+      },
+        
+    },
+    {
+      name: 'Firefox',
+      use: { 
+        baseURL: baseEnvironmentUrl.demo.home,
+        ...devices['Desktop Firefox'], 
+        //channel: 'firefox',
         //viewport: {width: 1920, height: 900},
       },
         
