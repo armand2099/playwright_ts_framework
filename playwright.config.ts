@@ -24,9 +24,9 @@ export default defineConfig({
     },
     //baseURL: 'https://playwright.dev',
   },
-  timeout: 60000,
+  timeout: 30000,
   expect: {
-    timeout: 20000,
+    timeout: 10000,
   },
   projects: [
     {

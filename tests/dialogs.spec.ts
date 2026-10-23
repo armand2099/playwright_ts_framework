@@ -11,6 +11,7 @@ test.beforeEach(async ({page}) => {
 
 
 test.describe('Test Accept, Alert, Confirm and prompt dialogs', () => {
+
     test('Accept Alert dialog', async() => {
         await expect(dialogsPage.alertText).toContainText('');
         await dialogsPage.alertDialog();
@@ -31,14 +32,14 @@ test.describe('Test Accept, Alert, Confirm and prompt dialogs', () => {
 
     test('Accept Prompt dialog', async() => {
         await expect(dialogsPage.prompText).toContainText('');
-        await dialogsPage.prompDialog(true, 'Hello World!');
+        await dialogsPage.promptDialog(true, 'Hello World!');
         await expect(dialogsPage.prompText).toContainText("You clicked OK. 'prompt' returned");
         await expect(dialogsPage.prompReturn).toContainText('Hello World!');
     });    
 
     test('Dismiss Prompt dialog', async() => {
         await expect(dialogsPage.prompText).toContainText('');
-        await dialogsPage.prompDialog(false);
+        await dialogsPage.promptDialog(false);
         await expect(dialogsPage.prompText).toContainText("You clicked Cancel. 'prompt' returned");
         await expect(dialogsPage.confirmReturn).toBeNull;
     });
