@@ -34,3 +34,11 @@ jobs:
     - name: Run tests
       run: 
         npx playwright test
+    - name: Generate Workflow Summary
+      if: ${{ !cancelled() }}
+      run: |
+        echo "## 🎭 Playwright Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status:** ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Node Version:** ${{ matrix.node-version }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Report:** Check the \`playwright-report\` artifact below to view full HTML details." >> $GITHUB_STEP_SUMMARY
