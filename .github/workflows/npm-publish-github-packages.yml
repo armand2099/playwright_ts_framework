@@ -11,6 +11,7 @@ jobs:
     uses: ./.github/workflows/webpack.yml
     permissions:
       contents: read
+      pages: write
       checks: write
       id-token: write
       
