@@ -34,25 +34,3 @@ jobs:
     - name: Run tests
       run: 
         npx playwright test
-    - name: Upload Test Report
-      if: always() # Ensures the report is uploaded even if tests fail
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: playwright-report/
-  deploy:
-    needs: build
-    if: always() # Deploy even if some test assertions failed, so you can inspect the report
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      # Step 2: Deploy the uploaded artifact to GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-      - name: Add Report Links to Workflow Summary
-        if: always()
-        run: |
-          echo "## 🎭 Playwright Test Run Summary" >> $GITHUB_STEP_SUMMARY
-          echo "* 🌐 [Test Report](https://armand2099.github.io/playwright_ts_framework/index.html)" >> $GITHUB_STEP_SUMMARY
