@@ -3,6 +3,15 @@ name: Sanity test
 on:
   workflow_call:
   workflow_dispatch:
+  
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:      
   build:
@@ -34,3 +43,24 @@ jobs:
     - name: Run tests
       run: 
         npx playwright test
+
+    - name: Setup Pages
+      if: always()
+      uses: actions/configure-pages@v5
+
+    - name: Upload Playwright Report Artifact
+      if: always()
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'playwright-report'
+        
+    - name: Deploy to GitHub Pages
+      if: always()
+      id: deployment
+      uses: actions/deploy-pages@v4
+
+    - name: Add Report Links to Workflow Summary
+      if: always()
+      run: |
+        echo "## 🎭 Playwright Test Run Summary" >> $GITHUB_STEP_SUMMARY
+        echo "* 🌐 [Test Report](https://armand2099.github.io/playwright_ts_framework/)" >> $GITHUB_STEP_SUMMARY
