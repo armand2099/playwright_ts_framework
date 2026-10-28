@@ -37,8 +37,8 @@ export class NewWindowPage extends BasePage{
             reTry++;
         
             newTab = await pagePromise;
-
-            await newTab.waitForLoadState();
+            
+            await newTab.waitForLoadState("domcontentloaded");
             await newTab.waitForSelector('body');
         } while (newTab.isClosed() && reTry < 5);
 

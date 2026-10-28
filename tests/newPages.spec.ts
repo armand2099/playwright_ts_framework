@@ -19,7 +19,9 @@ test.describe('Open and validate the 3 types of windows pages', () => {
 
     test('New Window', async() => {
         const newWindow = newWindowPage.newPage(newWindowPage.newWindowButton);
-        expect((await newWindow).locator('#sampleHeading')).toContainText('This is a sample page');
+        const newWindowHeading = (await newWindow).locator('h1#sampleHeading');
+        expect(newWindowHeading).toContainText('This is a sample page');
+        //expect((await newWindow).locator('#sampleHeading')).toContainText('This is a sample page');
         (await newWindow).close();
     });    
 
