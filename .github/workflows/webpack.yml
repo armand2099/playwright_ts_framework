@@ -58,3 +58,9 @@ jobs:
       if: always()
       id: deployment
       uses: actions/deploy-pages@v4
+
+    - name: Add Report Links to Workflow Summary
+      if: always()
+      run: |
+        echo "## 📊 Test Report" >> $GITHUB_STEP_SUMMARY
+        echo "* 🌐 [Test Report](https://armand2099.github.io/playwright_ts_framework/)" >> $GITHUB_STEP_SUMMARY
