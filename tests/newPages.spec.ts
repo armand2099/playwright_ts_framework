@@ -10,7 +10,7 @@ test.beforeEach(async ({page, context}) => {
     newWindowPage = new NewWindowPage(page, context);
 });
 
-test.describe('Open and validate the 3 types od windows pages', () => {
+test.describe('Open and validate the 3 types of windows pages', () => {
     test('New Tab', async() => {
         const newTab = newWindowPage.newPage(newWindowPage.newTabButton);
         expect((await newTab).locator('#sampleHeading')).toContainText('This is a sample page');
