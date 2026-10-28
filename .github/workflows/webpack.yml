@@ -2,8 +2,9 @@ name: Sanity test
 
 on:
   workflow_call:
+  workflow_dispatch:
 
-jobs:
+jobs:      
   build:
     runs-on: ubuntu-latest
 
