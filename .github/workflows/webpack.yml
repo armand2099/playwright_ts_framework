@@ -3,20 +3,8 @@ name: Sanity test
 on:
   workflow_call:
   workflow_dispatch:
-  
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 
-jobs:
-  run-sanity:
-    uses: armand2099/playwright_ts_framework/.github/workflows/webpack.yml@main
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-      
+jobs:      
   build:
     runs-on: ubuntu-latest
 
